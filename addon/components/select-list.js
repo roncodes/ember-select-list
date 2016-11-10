@@ -47,5 +47,12 @@ export default Ember.Component.extend({
 
     const changeCallback = this.get('action');
     changeCallback(value);
-  }
+  },
+
+  didInsertElement() {
+      var select = $(this.$());
+      select.change(function() {
+          this.set('value', select.val());
+      }.bind(this));
+  },
 });
