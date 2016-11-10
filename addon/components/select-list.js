@@ -21,7 +21,7 @@ export default Ember.Component.extend({
   // leaking changes to it via a 2-way binding
   _selection: Ember.computed.reads('value'),
 
-  didInitAttrs() {
+  init() {
     this._super(...arguments);
     if (!this.get('content')) {
       this.set('content', []);
