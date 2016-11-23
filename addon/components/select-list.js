@@ -50,9 +50,10 @@ export default Ember.Component.extend({
   },
 
   didInsertElement() {
+      var component = this;
       var select = $(this.$());
       select.change(function() {
-          this.set('value', select.val());
-      }.bind(this));
+          component.set('value', select.val());
+      });
   },
 });
