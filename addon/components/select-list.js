@@ -52,6 +52,9 @@ export default Ember.Component.extend({
   didInsertElement() {
       var component = this;
       var select = $(this.$());
+      setTimeout(function() {
+        component.set('value', select.val());
+      }, 100);
       select.change(function() {
           component.set('value', select.val());
       });
