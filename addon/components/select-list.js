@@ -56,9 +56,9 @@ export default Ember.Component.extend({
         setTimeout(function() {
           component.set('value', select.val());
         }, 100);
-        select.change(function() {
-            component.set('value', select.val());
-        });
       }
+      select.change(function() {
+          component.set('value', select.val());
+      });
   },
 });
