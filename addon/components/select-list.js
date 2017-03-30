@@ -11,7 +11,7 @@ export default Ember.Component.extend({
   optionLabelPath: null,
   required: false,
   title: null,
-  action: Ember.K, // action to fire on change
+  action: null, // action to fire on change
   tabindex: -1,
   disabled: null,
 
@@ -52,6 +52,9 @@ export default Ember.Component.extend({
   didInsertElement() {
       var component = this;
       var select = $(this.$());
+      if(component.get('value') === null) {
+        component.set('value', select.val());
+      }
       if(component.get('optionValuePath') !== null) {
         setTimeout(function() {
           component.set('value', select.val());
