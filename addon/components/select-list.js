@@ -54,13 +54,13 @@ export default Ember.Component.extend({
   didInsertElement() {
       var component = this;
       var select = $(this.$());
-      if(component.get('value') === null) {
+      if(!component.get('value')) {
         component.set('value', select.val());
       }
-      if(component.get('optionValuePath') !== null) {
+      if(component.get('optionValuePath') || component.get('value')) {
         setTimeout(function() {
           component.set('value', select.val());
-        }, 100);
+        }, 300);
       }
       select.change(function() {
           component.set('value', select.val());
